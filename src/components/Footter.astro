@@ -1,0 +1,155 @@
+---
+import ubicacion from '../assets/footter/ubicacion.webp';
+import tiktok    from '../assets/footter/tiktok.webp';
+import instagram from '../assets/footter/instagram.webp';
+import linkedin  from '../assets/footter/linkedin.webp';
+---
+
+<footer id="footter">
+  <hr class="footter-line" />
+
+  <div class="footter-inner">
+
+    <div class="footter-ubicacion">
+      <img src={ubicacion.src} alt="Ubicación" class="footter-ubicacion-icono" />
+      <div class="footter-ubicacion-texto">
+        <span class="footter-ubicacion-titulo">Ubícanos</span>
+        <span class="footter-ubicacion-desc">Gonzáles Prada 500 - Surquillo</span>
+      </div>
+    </div>
+
+    <div class="footter-redes">
+      <span class="footter-redes-texto">Síguenos en:</span>
+      <div class="footter-redes-iconos">
+        <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok">
+          <img src={tiktok.src} alt="TikTok" class="footter-red-icono" />
+        </a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+          <img src={instagram.src} alt="Instagram" class="footter-red-icono" />
+        </a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <img src={linkedin.src} alt="LinkedIn" class="footter-red-icono" />
+        </a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<style>
+  @font-face {
+    font-family: 'Gilroy';
+    src: url('../assets/open/gilroy-regular.ttf') format('truetype');
+    font-weight: 400;
+    font-display: swap;
+  }
+
+  #footter {
+    width: 100%;
+    background: #ffffff;
+    padding: 0 2rem 2rem;
+  }
+
+  .footter-line {
+    width: 100%;
+    max-width: 1460px;
+    height: 0;
+    border: none;
+    border-top: 1px solid #331A09;
+    margin: 0 auto 1.5rem;
+    opacity: 0.3;
+  }
+
+  .footter-inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1460px;
+    margin: 0 auto;
+    padding: 0 3rem;
+  }
+
+  /* ── Ubicación ── */
+  .footter-ubicacion {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .footter-ubicacion-icono {
+    width: 46.578px;
+    height: 46.344px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .footter-ubicacion-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .footter-ubicacion-titulo {
+    font-family: 'Gilroy', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #331A09;
+    width: 141px;
+    height: 21px;
+    line-height: 21px;
+    display: block;
+  }
+
+  .footter-ubicacion-desc {
+    font-family: 'Gilroy', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #331A09;
+    width: 287px;
+    display: block;
+    line-height: 1.3;
+  }
+
+  /* ── Redes ── */
+  .footter-redes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .footter-redes-texto {
+    font-family: 'Gilroy', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #331A09;
+    white-space: nowrap;
+  }
+
+  .footter-redes-iconos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .footter-redes-iconos a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s;
+  }
+
+  .footter-redes-iconos a:hover {
+    opacity: 0.75;
+  }
+
+  .footter-red-icono {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    display: block;
+  }
+</style>
