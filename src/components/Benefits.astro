@@ -1,0 +1,134 @@
+---
+import icono        from '../assets/benefits/icono.webp';
+import alimentacion from '../assets/benefits/alimentacion.webp';
+import detalle      from '../assets/benefits/detalle.webp';
+import consumo      from '../assets/benefits/consumo.webp';
+import dinero       from '../assets/benefits/dinero.webp';
+import torta        from '../assets/benefits/torta.webp';
+
+const items = [
+  { src: alimentacion.src, label: 'Alimentación\ncubierta' },
+  { src: detalle.src,      label: 'Detalle\ndel mes' },
+  { src: consumo.src,      label: 'Consumo\nautorizado' },
+  { src: dinero.src,       label: 'Incentivos de\nproductividad' },
+  { src: torta.src,        label: 'Torta de\ncumpleaños' },
+];
+---
+
+<section id="benefits">
+  <div class="benefits-inner">
+
+    <img src={icono.src} alt="" class="benefits-icono" />
+
+    <h2 class="benefits-titulo">Beneficios</h2>
+
+    <p class="benefits-desc">
+      Brindamos beneficios orientados al bienestar, aprendizaje y crecimiento<br />
+      profesional, fomentando un entorno donde cada colaborador pueda<br />
+      desarrollarse y alcanzar su máximo potencial.
+    </p>
+
+    <div class="benefits-grid">
+      {items.map(item => (
+        <div class="benefit-item">
+          <img src={item.src} alt={item.label} class="benefit-img" />
+          <p class="benefit-label">{item.label}</p>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  @font-face {
+    font-family: 'Fraunces';
+    src: url('../assets/about-us/Fraunces-VariableFont_SOFT,WONK,opsz,wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Gilroy';
+    src: url('../assets/open/gilroy-regular.ttf') format('truetype');
+    font-weight: 400;
+    font-display: swap;
+  }
+
+  #benefits {
+    width: 100%;
+    background: #ffffff;
+    padding: 6rem 2rem 10rem;
+  }
+
+  .benefits-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    gap: 1.5rem;
+  }
+
+  .benefits-icono {
+    width: 107.784px;
+    height: 107.784px;
+    object-fit: contain;
+  }
+
+  .benefits-titulo {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: #331A09;
+    margin: 0;
+    width: 480px;
+    height: 61px;
+    line-height: 61px;
+  }
+
+  .benefits-desc {
+    font-family: 'Gilroy', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #331A09;
+    line-height: 1.65;
+    letter-spacing: 0.3px;
+    margin: 0;
+    width: 767px;
+  }
+
+  .benefits-grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .benefit-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .benefit-img {
+    width: 140px;
+    height: 82px;
+    object-fit: contain;
+  }
+
+  .benefit-label {
+    font-family: 'Gilroy', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #331A09;
+    line-height: 1.4;
+    white-space: pre-line;
+    text-align: center;
+    margin: 0;
+  }
+</style>
