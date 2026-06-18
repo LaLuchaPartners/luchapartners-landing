@@ -1,0 +1,129 @@
+---
+import videoUrl from '../assets/ending/nuevo.mp4?url';
+---
+
+<section id="ending">
+  <div class="ending-inner">
+
+    <h2 class="ending-titulo">¡Te estamos buscando!</h2>
+
+    <p class="ending-desc">
+      Forma parte de la familia Lucha Partners. Postula a<br />
+      nuestras vacantes disponibles y pronto nos comunicaremos<br />
+      contigo para continuar el proceso.
+    </p>
+
+    <a href="#" class="ending-btn">Postúlate</a>
+
+    <video autoplay muted loop playsinline class="ending-video">
+      <source src={videoUrl} type="video/mp4" />
+    </video>
+
+    <p class="ending-horario">
+      Acercate a nuestras oficinas de Lunes a Viernes de 9:00 a.m. a 6:00 p.m.
+    </p>
+
+  </div>
+</section>
+
+<style>
+  @font-face {
+    font-family: 'Fraunces';
+    src: url('../assets/about-us/Fraunces-VariableFont_SOFT,WONK,opsz,wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Gilroy';
+    src: url('../assets/open/gilroy-regular.ttf') format('truetype');
+    font-weight: 400;
+    font-display: swap;
+  }
+
+  #ending {
+    width: 100%;
+    min-height: 100dvh;
+    background: #F2F4F3;
+    padding: 8rem 2rem;
+    display: flex;
+    align-items: center;
+    margin-top: -1px;
+  }
+
+  .ending-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    gap: 1.25rem;
+  }
+
+  .ending-titulo {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 30px;
+    font-weight: 400;
+    color: #331A09;
+    margin: 0;
+    width: 480px;
+    height: 69px;
+    line-height: 69px;
+  }
+
+  .ending-desc {
+    font-family: 'Gilroy', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #331A09;
+    line-height: 1.65;
+    letter-spacing: 0.3px;
+    margin: 0;
+    width: 631px;
+    height: 136px;
+  }
+
+  .ending-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 38px;
+    border: 1.5px solid #331A09;
+    border-radius: 50px;
+    color: #331A09;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 0.9rem;
+    text-decoration: none;
+    background: transparent;
+    transition: background 0.2s, color 0.2s;
+    transform: translateX(-6rem);
+    margin-top: -2rem;
+  }
+
+  .ending-btn:hover {
+    background: #331A09;
+    color: #F2F4F3;
+  }
+
+  .ending-video {
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+    display: block;
+    margin-top: -1rem;
+  }
+
+  .ending-horario {
+    font-family: 'Gilroy', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #331A09;
+    letter-spacing: 0.3px;
+    margin: 0;
+    width: 984px;
+    height: 26px;
+    line-height: 26px;
+  }
+</style>
