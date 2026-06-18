@@ -1,0 +1,157 @@
+---
+import img1    from '../assets/carrusel/img1.webp';
+import img2    from '../assets/carrusel/img2.webp';
+import img3    from '../assets/carrusel/img3.webp';
+import img4    from '../assets/carrusel/img4.webp';
+import circulo from '../assets/carrusel/circulo.webp';
+import oficina from '../assets/carrusel/oficina.webp';
+
+const images = [img1, img2, img3, img4];
+---
+
+<section id="carrusel">
+  <div class="carrusel-wrap">
+
+    <div class="carrusel-mask">
+      <div class="carrusel-track">
+        {images.map((img, i) => (
+          <img src={img.src} alt={`Carrusel ${i + 1}`} class="carrusel-img" />
+        ))}
+        {images.map((img, i) => (
+          <img src={img.src} alt={`Carrusel ${i + 1}`} class="carrusel-img" aria-hidden="true" />
+        ))}
+      </div>
+    </div>
+
+    <!-- Círculo rotatorio -->
+    <img src={circulo.src} alt="Lucha Partners" class="carrusel-circulo" />
+
+  </div>
+
+  <!-- Bloque Oficina -->
+  <div class="oficina-block">
+    <img src={oficina.src} alt="Oficina Lucha Partners" class="oficina-img" />
+    <h3 class="oficina-titulo">Oficina</h3>
+    <p class="oficina-desc">
+      Nuestra oficina con acabados de madera que crea un ambiente agradable para trabajar
+      y colaborar. Aquí se integran áreas claves como Operaciones, Finanzas, Recursos Humanos,
+      Marketing y otras áreas que trabajan de manera coordinada para impulsar el crecimiento
+    </p>
+    <a href="https://www.google.com/maps/place/Lucha+Partners+S.A.C./@-12.1169432,-77.0252875,19.29z/data=!4m6!3m5!1s0x9105c818dc117007:0x139c21820817ae8!8m2!3d-12.1167798!4d-77.0250256!16s%2Fg%2F11hb9yky8g?entry=tts&g_ep=EgoyMDI2MDUyNy4wIPu8ASoASAFQAw%3D%3D&skid=12c4dd06-4a9e-48ea-9a18-dbe5977a83a8" target="_blank" rel="noopener" class="oficina-btn">Ver mapa</a>
+  </div>
+
+</section>
+
+<style>
+  #carrusel {
+    width: 100%;
+    background: #ffffff;
+    padding: 4rem 0 5rem;
+    margin-top: 5rem;
+  }
+
+  /* contenedor relativo para posicionar el círculo */
+  .carrusel-wrap {
+    position: relative;
+    width: 100%;
+  }
+
+  .carrusel-mask {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .carrusel-track {
+    display: flex;
+    gap: 24px;
+    width: max-content;
+    animation: marquee 20s linear infinite;
+  }
+
+  .carrusel-img {
+    width: 470px;
+    height: 462px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+    display: block;
+  }
+
+  /* ── Círculo ── */
+  .carrusel-circulo {
+    position: absolute;
+    bottom: -80px;
+    right: 8%;
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
+    animation: spin 18s linear infinite;
+    z-index: 2;
+  }
+
+  /* ── Bloque Oficina ── */
+  .oficina-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 5rem 2rem 4rem;
+    gap: 1.25rem;
+  }
+
+  .oficina-img {
+    width: 220px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .oficina-titulo {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: 2rem;
+    color: #331A09;
+    margin: 0;
+    width: 480px;
+    line-height: 61px;
+  }
+
+  .oficina-desc {
+    font-family: 'Gilroy', sans-serif;
+    font-size: 1rem;
+    color: #331A09;
+    line-height: 1.65;
+    margin: 0;
+    width: 719px;
+    min-height: 168px;
+  }
+
+  .oficina-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    height: 44px;
+    margin-top: -4rem;
+    background: #F47153;
+    color: #ffffff;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 0.9rem;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: opacity 0.2s ease;
+  }
+
+  .oficina-btn:hover {
+    opacity: 0.88;
+  }
+
+  @keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 12px)); }
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+</style>
