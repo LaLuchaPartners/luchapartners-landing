@@ -1,0 +1,155 @@
+---
+import logo from '../assets/open/open-logo.webp';
+import videoUrl from '../assets/open/bienvenida.mp4?url';
+---
+
+<section id="open">
+  <div class="open-wrap">
+
+    <div class="open-logo">
+      <img src={logo.src} alt="Lucha Partners" width={logo.width} height={logo.height} />
+    </div>
+
+    <div class="open-character">
+      <video autoplay muted loop playsinline>
+        <source src={videoUrl} type="video/mp4" />
+      </video>
+    </div>
+
+    <div class="open-bottom">
+      <h2 class="open-title">Bienvenido</h2>
+      <p class="open-desc">
+        Cada logro tiene una historia.<br />
+        Aquí te contamos quiénes somos y cómo trabajamos para hacerla realidad.
+      </p>
+      <a href="#hero" class="open-btn">Empezar</a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  @font-face {
+    font-family: 'Gilroy';
+    src: url('../assets/open/gilroy-regular.ttf') format('truetype');
+    font-weight: 400;
+    font-display: swap;
+  }
+
+  #open {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Gilroy', 'Nunito', 'Poppins', sans-serif;
+    transition: transform 1.1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .open-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    padding: 2.5rem 1.25rem 3rem;
+    gap: 0;
+  }
+
+  /* ── Logo ── */
+  .open-logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .open-logo img {
+    width: clamp(180px, 55%, 285px);
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* ── Personaje / video ── */
+  .open-character {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0rem;
+  }
+
+  .open-character video {
+    width: clamp(250px, 70%, 340px);
+    height: auto;
+    object-fit: contain;
+    display: block;
+    transform: translateX(-9%);
+  }
+
+  /* ── Texto ── */
+  .open-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .open-title {
+    font-size: 20px; /* 18px */
+    font-weight: 700;
+    color: #331A09;
+    margin-bottom: 0.5rem;
+  }
+
+  .open-desc {
+    font-size: 15px; /* 13px */
+    color: #331A09;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  /* ── Botón ── */
+  .open-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.5rem;
+    width: 191px;
+    height: 39px;
+    background: #F58C63;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 17px;
+    transition: opacity 0.2s ease;
+  }
+
+  .open-btn:hover {
+    opacity: 0.88;
+  }
+</style>
+
+<script>
+  const openSection = document.getElementById('open') as HTMLElement;
+  const btn = openSection.querySelector('.open-btn') as HTMLAnchorElement;
+
+  // Lock scroll while open section is visible
+  document.documentElement.style.overflow = 'hidden';
+
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    openSection.style.transform = 'translateY(-100%)';
+    openSection.style.pointerEvents = 'none';
+
+    setTimeout(() => {
+      openSection.style.display = 'none';
+      document.documentElement.style.overflow = '';
+    }, 1100);
+  });
+</script>
