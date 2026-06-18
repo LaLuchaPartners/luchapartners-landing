@@ -1,0 +1,109 @@
+---
+import fabrica from '../assets/produccion/fabrica.webp';
+import flecha  from '../assets/produccion/flecha.webp';
+---
+
+<section id="produccion">
+
+  <!-- ── Centro de Producción ── -->
+  <div class="prod-centro">
+    <div class="prod-centro-inner">
+      <div class="prod-centro-text">
+        <h2 class="prod-titulo">Centro de Producción</h2>
+        <p class="prod-desc">
+          Donde elaboramos y organizamos los insumos que abastecen a nuestras marcas,
+          trabajando con procesos estandarizados que aseguran calidad, limpieza y
+          consistencia en cada producto.
+        </p>
+      </div>
+      <img src={fabrica.src} alt="Centro de Producción" class="prod-fabrica" />
+    </div>
+    <a href="#areas"><img src={flecha.src} alt="Ver áreas" class="prod-flecha" /></a>
+  </div>
+
+</section>
+
+<style>
+  @font-face {
+    font-family: 'Fraunces';
+    src: url('../assets/about-us/Fraunces-VariableFont_SOFT,WONK,opsz,wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Gilroy';
+    src: url('../assets/open/gilroy-regular.ttf') format('truetype');
+    font-weight: 400;
+    font-display: swap;
+  }
+
+  #produccion {
+    width: 100%;
+    background: #ffffff;
+    padding: 5rem 6rem;
+  }
+
+  /* ── Centro de Producción ── */
+  .prod-centro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* fila: texto + imagen juntos y centrados */
+  .prod-centro-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9rem;
+  }
+
+  .prod-centro-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .prod-titulo {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 128%;
+    color: #331A09;
+    -webkit-text-stroke-width: 0.3px;
+    -webkit-text-stroke-color: #331A09;
+    margin: 0;
+    width: 360px;
+  }
+
+  .prod-desc {
+    font-family: 'Gilroy', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 128%;
+    letter-spacing: 1.4px;
+    color: #331A09;
+    margin: 0;
+    width: 460px;
+  }
+
+  /* flecha centrada debajo de todo */
+  .prod-flecha {
+    width: 55px;
+    height: 14px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .prod-fabrica {
+    width: 220px;
+    height: 220px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+</style>
