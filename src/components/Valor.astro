@@ -22,41 +22,44 @@ import personasUrl from '../assets/valor/personas.mp4?url';
     <!-- Stats -->
     <div class="valor-stats">
 
-      <!-- ── Col 1: Manos ── -->
       <div class="stat-col stat-manos">
         <div class="stat-video-wrap">
           <video class="stat-video" autoplay muted loop playsinline>
             <source src={manosUrl} type="video/mp4" />
           </video>
         </div>
-        <span class="stat-num">+2,000</span>
-        <span class="stat-label">Mil colaboradores</span>
+        <div class="stat-text-wrap">
+          <span class="stat-num">+2,000</span>
+          <span class="stat-label">Mil colaboradores</span>
+        </div>
       </div>
 
       <div class="valor-divider"></div>
 
-      <!-- ── Col 2: Tienda ── -->
       <div class="stat-col stat-tienda">
         <div class="stat-video-wrap">
           <video class="stat-video" autoplay muted loop playsinline>
             <source src={tiendaUrl} type="video/mp4" />
           </video>
         </div>
-        <span class="stat-num">38</span>
-        <span class="stat-label">Tiendas en el Perú<br />y en el exterior</span>
+        <div class="stat-text-wrap">
+          <span class="stat-num">38</span>
+          <span class="stat-label">Tiendas en el Perú<br />y en el exterior</span>
+        </div>
       </div>
 
       <div class="valor-divider"></div>
 
-      <!-- ── Col 3: Personas ── -->
       <div class="stat-col stat-personas">
         <div class="stat-video-wrap">
           <video class="stat-video" autoplay muted loop playsinline>
             <source src={personasUrl} type="video/mp4" />
           </video>
         </div>
-        <span class="stat-num">+1,0000</span>
-        <span class="stat-label">Millón de clientes al mes</span>
+        <div class="stat-text-wrap">
+          <span class="stat-num">+1,0000</span>
+          <span class="stat-label">Millón de clientes al mes</span>
+        </div>
       </div>
 
     </div>
@@ -78,6 +81,9 @@ import personasUrl from '../assets/valor/personas.mp4?url';
     font-display: swap;
   }
 
+  /* ════════════════════════════
+     DESKTOP
+  ════════════════════════════ */
   #valor {
     width: 100%;
     background: #ffffff;
@@ -93,7 +99,6 @@ import personasUrl from '../assets/valor/personas.mp4?url';
     gap: 4rem;
   }
 
-  /* ── Encabezado ── */
   .valor-header {
     display: flex;
     align-items: center;
@@ -124,7 +129,7 @@ import personasUrl from '../assets/valor/personas.mp4?url';
 
   .valor-desc {
     font-family: 'Gilroy', sans-serif;
-    font-size: clamp(1.2rem, 1.1vw, 0.95rem);
+    font-size: clamp(0.85rem, 1.1vw, 0.95rem);
     color: #2a2a2a;
     margin: 0;
     line-height: 1.5;
@@ -135,7 +140,6 @@ import personasUrl from '../assets/valor/personas.mp4?url';
     font-weight: 700;
   }
 
-  /* ── Stats — contenedor ── */
   .valor-stats {
     display: flex;
     align-items: stretch;
@@ -143,7 +147,6 @@ import personasUrl from '../assets/valor/personas.mp4?url';
     gap: 0;
   }
 
-  /* ── Columna base ── */
   .stat-col {
     flex: 1;
     display: flex;
@@ -154,7 +157,6 @@ import personasUrl from '../assets/valor/personas.mp4?url';
     padding: 0 2rem;
   }
 
-  /* zona fija igual para los 3 → números siempre alineados */
   .stat-video-wrap {
     width: 100%;
     height: 128px;
@@ -168,12 +170,17 @@ import personasUrl from '../assets/valor/personas.mp4?url';
     display: block;
   }
 
-  /* ── Tamaños individuales de cada video ── */
   .stat-manos    .stat-video { width: 218px; height: 96px;  }
   .stat-tienda   .stat-video { width: 120px; height: 112px; }
   .stat-personas .stat-video { width: 234px; height: 128px; }
 
-  /* ── Número ── */
+  .stat-text-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
   .stat-num {
     font-family: 'Fraunces', Georgia, serif;
     font-size: clamp(2rem, 3.5vw, 2.75rem);
@@ -182,7 +189,6 @@ import personasUrl from '../assets/valor/personas.mp4?url';
     line-height: 1;
   }
 
-  /* ── Label ── */
   .stat-label {
     font-family: 'Gilroy', sans-serif;
     font-size: clamp(0.75rem, 0.95vw, 0.85rem);
@@ -190,12 +196,122 @@ import personasUrl from '../assets/valor/personas.mp4?url';
     line-height: 1.4;
   }
 
-  /* ── Divisor vertical ── */
   .valor-divider {
     width: 2px;
     height: 220px;
     background: #331A0991;
     opacity: 0.57;
     flex-shrink: 0;
+  }
+
+  /* ════════════════════════════
+     MOBILE
+  ════════════════════════════ */
+  @media (max-width: 480px) {
+    #valor {
+      padding: 3rem 1.5rem;
+      margin-top: 0;
+    }
+
+    .valor-inner {
+      gap: 2.5rem;
+    }
+
+    /* Header */
+    .valor-header {
+      padding-left: 0;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .valor-icon {
+      width: 56px;
+      height: 56px;
+    }
+
+    .valor-title {
+      font-size: 1.6rem;
+    }
+
+    .valor-desc {
+      font-size: 0.95rem;
+    }
+
+    /* Stats en columna vertical */
+    .valor-stats {
+      flex-direction: column;
+      gap: 0;
+    }
+
+    /* Líneas encima y debajo del bloque */
+    .valor-stats::before,
+    .valor-stats::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 1px;
+      background: #331A0991;
+      opacity: 0.4;
+    }
+
+    /* Divisores horizontales entre stats */
+    .valor-divider {
+      width: 100%;
+      height: 1px;
+      background: #331A0991;
+      opacity: 0.4;
+    }
+
+    /* Cada stat: fila con video a la izquierda */
+    .stat-col {
+      flex: unset;
+      width: 100%;
+      flex-direction: row;
+      align-items: center;
+      text-align: left;
+      padding: 1.75rem 0;
+      gap: 0;
+    }
+
+    .stat-video-wrap {
+      flex: 0 0 130px;
+      width: 130px;
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Tamaños de video en mobile */
+    .stat-manos    .stat-video { width: 90px;  height: auto; }
+    .stat-tienda   .stat-video { width: 75px;  height: auto; }
+    .stat-personas .stat-video { width: 95px;  height: auto; }
+
+    /* Texto */
+    .stat-text-wrap {
+      flex: 1;
+      align-items: flex-start;
+      gap: 0.15rem;
+    }
+
+    .stat-num {
+      font-size: 2.2rem;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: #555555;
+      text-align: left;
+    }
+
+    /* Ajustes individuales (alineación fina por stat) */
+    .stat-manos    .stat-num   { margin-left: 0.5rem; }
+    .stat-tienda   .stat-num   { margin-left: 3.3rem; }
+    .stat-personas .stat-num   { margin-left: 0; }
+
+    .stat-manos    .stat-label { margin-left: 1rem; }
+    .stat-tienda   .stat-label { margin-left: 1rem; }
+    .stat-personas .stat-label { margin-left: 0; }
   }
 </style>

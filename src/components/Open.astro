@@ -1,5 +1,5 @@
 ---
-import logo from '../assets/open/open-logo.webp';
+import logo     from '../assets/open/open-logo.webp';
 import videoUrl from '../assets/open/bienvenida.mp4?url';
 ---
 
@@ -44,6 +44,7 @@ import videoUrl from '../assets/open/bienvenida.mp4?url';
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
     font-family: 'Gilroy', 'Nunito', 'Poppins', sans-serif;
     transition: transform 1.1s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -98,14 +99,14 @@ import videoUrl from '../assets/open/bienvenida.mp4?url';
   }
 
   .open-title {
-    font-size: 20px; /* 18px */
+    font-size: 20px;
     font-weight: 700;
     color: #331A09;
     margin-bottom: 0.5rem;
   }
 
   .open-desc {
-    font-size: 15px; /* 13px */
+    font-size: 15px;
     color: #331A09;
     line-height: 1.2;
     margin: 0;
@@ -131,6 +132,43 @@ import videoUrl from '../assets/open/bienvenida.mp4?url';
 
   .open-btn:hover {
     opacity: 0.88;
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 768px) {
+    .open-wrap {
+      padding: 2rem 1.5rem 2.5rem;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .open-logo img {
+      width: clamp(160px, 60vw, 240px);
+    }
+
+    .open-character {
+      width: 100%;
+    }
+
+    .open-character video {
+      width: clamp(180px, 65vw, 280px);
+      transform: translateX(-5%);
+    }
+
+    .open-title {
+      font-size: 22px;
+    }
+
+    .open-desc {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .open-btn {
+      width: 220px;
+      height: 44px;
+      font-size: 15px;
+    }
   }
 </style>
 

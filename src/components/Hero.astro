@@ -1,6 +1,5 @@
 ---
-import logos1   from '../assets/hero/logos-1.webp';
-import logo2    from '../assets/hero/logo-2.webp';
+import logos    from '../assets/hero/logos.webp';
 import videoUrl from '../assets/hero/lp.mp4?url';
 ---
 
@@ -19,8 +18,7 @@ import videoUrl from '../assets/hero/lp.mp4?url';
         comida, estando entre uno de las 5 mejores marcas del rubro.
       </p>
       <div class="hero-logos">
-        <img src={logos1.src}  alt="Marcas Lucha Partners" />
-        <img src={logo2.src}   alt="Marca" class="logo-sm" />
+        <img src={logos.src} alt="Marcas Lucha Partners" />
       </div>
     </div>
   </div>
@@ -38,10 +36,10 @@ import videoUrl from '../assets/hero/lp.mp4?url';
     flex-direction: column;
   }
 
-  /* ── Video — ratio nativo 68/35, limitado para no tapar la franja ── */
+  /* ── Video ── */
   .hero-video-wrap {
     width: 100%;
-    aspect-ratio: 68 / 35;
+    aspect-ratio: 254 / 149;
     max-height: calc(100dvh - 140px);
     overflow: hidden;
     background: #111;
@@ -54,7 +52,7 @@ import videoUrl from '../assets/hero/lp.mp4?url';
     display: block;
   }
 
-  /* ── Franja inferior fija ── */
+  /* ── Franja inferior ── */
   .hero-footer {
     flex-shrink: 0;
     width: 100%;
@@ -87,17 +85,46 @@ import videoUrl from '../assets/hero/lp.mp4?url';
   .hero-logos {
     display: flex;
     align-items: center;
-    gap: 2rem;
     flex-shrink: 0;
   }
 
   .hero-logos img {
-    height: 52px;
-    width: auto;
+    width: 171.118px;
+    height: 42.906px;
     object-fit: contain;
   }
 
-  .hero-logos img.logo-sm {
-    height: 36px;
+  /* ── Mobile ── */
+  @media (max-width: 768px) {
+    #hero {
+      height: auto;
+      min-height: 100dvh;
+    }
+
+    .hero-video-wrap {
+      width: 100%;
+      aspect-ratio: unset;
+      height: 65dvh;
+      max-height: none;
+    }
+
+    .hero-footer {
+      height: auto;
+      padding: 2rem 1.5rem;
+    }
+
+    .hero-footer-inner {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0;
+      gap: 1.5rem;
+    }
+
+    .hero-text {
+      width: 100%;
+      font-size: 1.3rem;
+      text-align: center;
+    }
   }
 </style>
