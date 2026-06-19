@@ -154,4 +154,49 @@ const images = [img1, img2, img3, img4];
     from { transform: rotate(0deg); }
     to   { transform: rotate(360deg); }
   }
+
+  /* ── Mobile ── */
+  @media (max-width: 780px) {
+    #carrusel {
+      margin-top: 2rem;
+      padding: 2rem 0 3rem;
+    }
+
+    .carrusel-img {
+      width: 240px;
+      height: 236px;
+    }
+
+    .carrusel-circulo {
+      width: 100px;
+      height: 100px;
+      bottom: -50px;
+      right: 4%;
+    }
+
+    .oficina-block {
+      padding: 4rem 1.5rem 3rem;
+      gap: 1rem;
+    }
+
+    .oficina-img {
+      width: 160px;
+    }
+
+    .oficina-titulo {
+      width: 100%;
+      font-size: 1.6rem;
+      line-height: 1.3;
+    }
+
+    .oficina-desc {
+      width: 100%;
+      min-height: auto;
+      font-size: 0.9rem;
+    }
+
+    .oficina-btn {
+      margin-top: 0;
+    }
+  }
 </style>
