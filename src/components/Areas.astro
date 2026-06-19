@@ -1,12 +1,49 @@
 ---
-import completo from '../assets/areas/todo.webp';
+import completo      from '../assets/areas/todo.webp';
+import imagenmobile  from '../assets/areas/imagenmobile.webp';
+import icono         from '../assets/areas/icono.webp';
 ---
 
 <section id="areas">
-  <img src={completo.src} alt="Áreas de Producción" class="areas-img" />
+  <!-- Desktop -->
+  <img src={completo.src} alt="Áreas de Producción" class="areas-img areas-desktop" />
+
+  <!-- Mobile -->
+  <div class="areas-mobile">
+    <p class="areas-mobile-sup">
+      Las áreas que hacen que nuestro<br />
+      centro de producción siempre<br />
+      este funcionando
+    </p>
+
+    <img src={imagenmobile.src} alt="Áreas de Producción" class="areas-mobile-img" />
+
+    <div class="areas-mobile-info">
+      <img src={icono.src} alt="" class="areas-mobile-icono" />
+      <h2 class="areas-mobile-titulo">Áreas de Producción</h2>
+      <p class="areas-mobile-desc">
+        Aquí trabajamos con logística, producción, calidad e inocuidad
+        para garantizar productos frescos y de calidad.
+      </p>
+    </div>
+  </div>
 </section>
 
 <style>
+  @font-face {
+    font-family: 'Fraunces';
+    src: url('../assets/about-us/Fraunces-VariableFont_SOFT,WONK,opsz,wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Gilroy';
+    src: url('../assets/open/gilroy-regular.ttf') format('truetype');
+    font-weight: 400;
+    font-display: swap;
+  }
+
   #areas {
     width: 100%;
     background: #ffffff;
@@ -19,5 +56,78 @@ import completo from '../assets/areas/todo.webp';
     height: auto;
     display: block;
     margin: 0 auto;
+  }
+
+  /* Mobile elements hidden on desktop */
+  .areas-mobile {
+    display: none;
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 480px) {
+    #areas {
+      padding: 2.5rem 0 3rem;
+    }
+
+    .areas-desktop {
+      display: none;
+    }
+
+    .areas-mobile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    .areas-mobile-sup {
+      width: 250px;
+      height: 44px;
+      font-family: 'Gilroy', sans-serif;
+      font-size: 0.78rem;
+      color: #331A09;
+      text-align: center;
+      line-height: 1.45;
+      margin: 0 0 3.5rem;
+      overflow: visible;
+    }
+
+    .areas-mobile-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .areas-mobile-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0 1.75rem;
+      gap: 0.6rem;
+    }
+
+    .areas-mobile-icono {
+      width: 68px;
+      height: 68px;
+      object-fit: contain;
+    }
+
+    .areas-mobile-titulo {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.75rem;
+      font-weight: 400;
+      color: #331A09;
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    .areas-mobile-desc {
+      font-family: 'Gilroy', sans-serif;
+      font-size: 0.9rem;
+      color: #331A09;
+      line-height: 1.55;
+      margin: 0;
+    }
   }
 </style>
