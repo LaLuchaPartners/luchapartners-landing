@@ -3,10 +3,11 @@ import img1    from '../assets/carrusel/img1.webp';
 import img2    from '../assets/carrusel/img2.webp';
 import img3    from '../assets/carrusel/img3.webp';
 import img4    from '../assets/carrusel/img4.webp';
+import img5    from '../assets/carrusel/img5.webp';
 import circulo from '../assets/carrusel/circulo.webp';
 import oficina from '../assets/carrusel/oficina.webp';
 
-const images = [img1, img2, img3, img4];
+const images = [img1, img2, img3, img4, img5];
 ---
 
 <section id="carrusel">
@@ -47,7 +48,7 @@ const images = [img1, img2, img3, img4];
     width: 100%;
     background: #ffffff;
     padding: 4rem 0 5rem;
-    margin-top: 5rem;
+    margin-top: 10rem;
   }
 
   /* contenedor relativo para posicionar el círculo */
@@ -69,8 +70,8 @@ const images = [img1, img2, img3, img4];
   }
 
   .carrusel-img {
-    width: 470px;
-    height: 462px;
+    width: 320px;
+    height: 315px;
     object-fit: cover;
     border-radius: 8px;
     flex-shrink: 0;
@@ -80,10 +81,10 @@ const images = [img1, img2, img3, img4];
   /* ── Círculo ── */
   .carrusel-circulo {
     position: absolute;
-    bottom: -80px;
+    bottom: -60px;
     right: 8%;
-    width: 160px;
-    height: 160px;
+    width: 120px;
+    height: 120px;
     object-fit: contain;
     animation: spin 18s linear infinite;
     z-index: 2;
