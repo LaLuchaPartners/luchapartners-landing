@@ -8,12 +8,10 @@ import videoUrl from '../assets/ending/nuevo.mp4?url';
     <h2 class="ending-titulo">¡Te estamos buscando!</h2>
 
     <p class="ending-desc">
-      Forma parte de la familia Lucha Partners. Postula a<br />
-      nuestras vacantes disponibles y pronto nos comunicaremos<br />
-      contigo para continuar el proceso.
+      Forma parte de la familia Lucha Partners. Postula a nuestras vacantes disponibles y pronto nos comunicaremos contigo para continuar el proceso.
     </p>
 
-    <a href="#" class="ending-btn">Postúlate</a>
+    <a href="#" class="ending-btn">Postularme</a>
 
     <video autoplay muted loop playsinline class="ending-video">
       <source src={videoUrl} type="video/mp4" />
@@ -125,5 +123,46 @@ import videoUrl from '../assets/ending/nuevo.mp4?url';
     width: 984px;
     height: 26px;
     line-height: 26px;
+  }
+
+  @media (max-width: 480px) {
+    #ending {
+      padding: 4rem 2rem 3rem;
+      align-items: flex-start;
+    }
+
+    .ending-inner {
+      gap: 1rem;
+    }
+
+    .ending-titulo {
+      width: 100%;
+      height: auto;
+      font-size: 2.2rem;
+      line-height: 1.2;
+    }
+
+    .ending-desc {
+      width: 75%;
+      height: auto;
+      font-size: 0.85rem;
+    }
+
+    .ending-btn {
+      transform: none;
+      margin-top: 0.5rem;
+    }
+
+    .ending-video {
+      max-width: 280px;
+      margin-top: 0;
+    }
+
+    .ending-horario {
+      width: 100%;
+      height: auto;
+      line-height: 1.5;
+      font-size: 13px;
+    }
   }
 </style>
