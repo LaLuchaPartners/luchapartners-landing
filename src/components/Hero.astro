@@ -25,10 +25,15 @@ import videoUrl from '../assets/hero/lp.mp4?url';
 
 </section>
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet" />
 
 <style>
+  @font-face {
+    font-family: 'UT Sugar Cane';
+    src: url('../assets/hero/SUGAR CANE UT REGULAR.TTF') format('truetype');
+    font-weight: 400;
+    font-display: swap;
+  }
+
   #hero {
     width: 100%;
     height: 100dvh;
@@ -74,10 +79,10 @@ import videoUrl from '../assets/hero/lp.mp4?url';
   }
 
   .hero-text {
-    font-family: 'Dancing Script', cursive;
-    font-size: clamp(1.1rem, 1.6vw, 1.35rem);
-    color: #2a2a2a;
-    line-height: 1.6;
+    font-family: 'UT Sugar Cane', cursive;
+    font-size: 30px;
+    color: #000;
+    line-height: 96%;
     margin: 0;
     text-align: left;
   }
@@ -110,7 +115,7 @@ import videoUrl from '../assets/hero/lp.mp4?url';
 
     .hero-footer {
       height: auto;
-      padding: 2rem 1.5rem;
+      padding: 3.5rem 1.5rem 2rem;
     }
 
     .hero-footer-inner {
