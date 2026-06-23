@@ -138,6 +138,7 @@ import personasUrl from '../assets/valor/personas.mp4?url';
   .valor-desc strong {
     font-family: 'Gilroy', sans-serif;
     font-weight: 700;
+    -webkit-text-stroke: 0.3px currentColor;
   }
 
   .valor-stats {
@@ -220,21 +221,37 @@ import personasUrl from '../assets/valor/personas.mp4?url';
     /* Header */
     .valor-header {
       padding-left: 0;
-      align-items: flex-start;
-      gap: 1rem;
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      grid-template-rows: auto auto;
+      column-gap: 1rem;
+      row-gap: 0.5rem;
+      align-items: center;
+      max-width: 80%;
+      margin: 0 auto;
     }
 
     .valor-icon {
+      grid-column: 1;
+      grid-row: 1;
       width: 56px;
       height: 56px;
     }
 
+    .valor-header-text {
+      display: contents;
+    }
+
     .valor-title {
+      grid-column: 2;
+      grid-row: 1;
       font-size: 1.6rem;
     }
 
     .valor-desc {
-      font-size: 0.95rem;
+      grid-column: 1 / -1;
+      grid-row: 2;
+      font-size: 0.8rem;
     }
 
     /* Stats en columna vertical */
@@ -309,11 +326,11 @@ import personasUrl from '../assets/valor/personas.mp4?url';
 
     /* Ajustes individuales (alineación fina por stat) */
     .stat-manos    .stat-num   { margin-left: 0.5rem; }
-    .stat-tienda   .stat-num   { margin-left: 3.3rem; }
+    .stat-tienda   .stat-num   { margin-left: 3.3rem; text-align: center; }
     .stat-personas .stat-num   { margin-left: 0; }
 
     .stat-manos    .stat-label { margin-left: 1rem; }
-    .stat-tienda   .stat-label { margin-left: 1rem; }
+    .stat-tienda   .stat-label { margin-left: 1rem; text-align: center; }
     .stat-personas .stat-label { margin-left: 0; }
   }
 </style>
