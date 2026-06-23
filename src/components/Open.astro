@@ -110,6 +110,7 @@ import videoUrl from '../assets/open/bienvenida.mp4?url';
     color: #331A09;
     line-height: 1.2;
     margin: 0;
+    max-width: 280px;
   }
 
   /* ── Botón ── */
@@ -137,37 +138,78 @@ import videoUrl from '../assets/open/bienvenida.mp4?url';
   /* ── Mobile ── */
   @media (max-width: 768px) {
     .open-wrap {
-      padding: 2rem 1.5rem 2.5rem;
+      padding: 1.5rem 1.25rem 1.75rem;
       justify-content: center;
       height: 100%;
+      gap: 0;
+    }
+
+    .open-logo {
+      margin-bottom: 0.75rem;
     }
 
     .open-logo img {
-      width: clamp(160px, 60vw, 240px);
+      width: clamp(120px, 42vw, 180px);
     }
 
     .open-character {
       width: 100%;
+      margin-bottom: 0;
     }
 
     .open-character video {
-      width: clamp(180px, 65vw, 280px);
+      width: clamp(160px, 65vw, 210px);
       transform: translateX(-5%);
     }
 
+    .open-bottom {
+      gap: 0.5rem;
+    }
+
     .open-title {
-      font-size: 22px;
+      font-size: 17px;
+      margin-bottom: 0.25rem;
     }
 
     .open-desc {
-      font-size: 14px;
-      line-height: 1.5;
+      font-size: 12px;
+      line-height: 1.45;
     }
 
     .open-btn {
-      width: 220px;
-      height: 44px;
+      width: 160px;
+      height: 38px;
+      font-size: 13px;
+      margin-top: 0.35rem;
+    }
+  }
+
+  /* ── Small mobile (iPhone SE, Galaxy A series, etc.) ── */
+  @media (max-width: 768px) and (max-height: 700px) {
+    .open-wrap {
+      padding: 1rem 1.25rem 1.25rem;
+    }
+
+    .open-logo img {
+      width: clamp(100px, 36vw, 150px);
+    }
+
+    .open-character video {
+      width: clamp(110px, 40vw, 170px);
+    }
+
+    .open-title {
       font-size: 15px;
+    }
+
+    .open-desc {
+      font-size: 11px;
+    }
+
+    .open-btn {
+      width: 140px;
+      height: 34px;
+      font-size: 12px;
     }
   }
 </style>
