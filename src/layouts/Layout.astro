@@ -13,6 +13,56 @@
   </head>
   <body>
     <slot />
+
+    <script>
+      function tryPlay(video: HTMLVideoElement) {
+        if (video.paused) {
+          video.play().catch(() => {});
+        }
+      }
+
+      function initVideos() {
+        const videos = Array.from(
+          document.querySelectorAll<HTMLVideoElement>('video[autoplay]')
+        );
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                tryPlay(entry.target as HTMLVideoElement);
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        videos.forEach((video) => {
+          video.muted = true;
+          video.playsInline = true;
+          tryPlay(video);
+          observer.observe(video);
+        });
+
+        // Reintentar cuando la página vuelve a ser visible (ej. volver de otra app)
+        document.addEventListener('visibilitychange', () => {
+          if (document.visibilityState === 'visible') {
+            videos.forEach(tryPlay);
+          }
+        });
+
+        // Reintentar al primer toque del usuario (desbloquea políticas restrictivas)
+        document.addEventListener('touchstart', () => {
+          videos.forEach(tryPlay);
+        }, { once: true });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initVideos);
+      } else {
+        initVideos();
+      }
+    </script>
   </body>
 </html>
 

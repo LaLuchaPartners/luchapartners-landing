@@ -19,6 +19,15 @@ import pacoyonque from '../assets/about-us/pacoyonque.webp';
           sentir a cada persona como en casa.
         </p>
         <button class="about-card-btn">Ver más</button>
+        <div class="about-controls">
+          <button class="about-arrow about-prev" aria-label="Anterior">&#8249;</button>
+          <div class="about-dots">
+            <span class="about-dot active"></span>
+            <span class="about-dot"></span>
+            <span class="about-dot"></span>
+          </div>
+          <button class="about-arrow about-next" aria-label="Siguiente">&#8250;</button>
+        </div>
       </div>
     </div>
 
@@ -34,6 +43,15 @@ import pacoyonque from '../assets/about-us/pacoyonque.webp';
           que nos caracteriza en cada atención.
         </p>
         <button class="about-card-btn">Ver más</button>
+        <div class="about-controls">
+          <button class="about-arrow about-prev" aria-label="Anterior">&#8249;</button>
+          <div class="about-dots">
+            <span class="about-dot"></span>
+            <span class="about-dot active"></span>
+            <span class="about-dot"></span>
+          </div>
+          <button class="about-arrow about-next" aria-label="Siguiente">&#8250;</button>
+        </div>
       </div>
     </div>
 
@@ -48,20 +66,18 @@ import pacoyonque from '../assets/about-us/pacoyonque.webp';
           con el toque perfecto de fuego, sazón y buena compañía en cada experiencia.
         </p>
         <button class="about-card-btn">Ver más</button>
+        <div class="about-controls">
+          <button class="about-arrow about-prev" aria-label="Anterior">&#8249;</button>
+          <div class="about-dots">
+            <span class="about-dot"></span>
+            <span class="about-dot"></span>
+            <span class="about-dot active"></span>
+          </div>
+          <button class="about-arrow about-next" aria-label="Siguiente">&#8250;</button>
+        </div>
       </div>
     </div>
 
-  </div>
-
-  <!-- Controles solo visibles en mobile -->
-  <div class="about-slider-controls">
-    <button class="about-arrow about-prev" aria-label="Anterior">&#8249;</button>
-    <div class="about-dots">
-      <span class="about-dot active"></span>
-      <span class="about-dot"></span>
-      <span class="about-dot"></span>
-    </div>
-    <button class="about-arrow about-next" aria-label="Siguiente">&#8250;</button>
   </div>
 </section>
 
@@ -163,7 +179,7 @@ import pacoyonque from '../assets/about-us/pacoyonque.webp';
   }
 
   /* Controles ocultos en desktop */
-  .about-slider-controls {
+  .about-controls {
     display: none;
   }
 
@@ -172,14 +188,15 @@ import pacoyonque from '../assets/about-us/pacoyonque.webp';
     #about-us {
       padding: 0;
       margin-top: 0rem;
-      position: relative;
+      overflow: hidden;
+      height: 113dvh;
     }
 
     .about-grid {
       display: block;
       position: relative;
       width: 100%;
-      height: 110dvh;
+      height: 115dvh;
     }
 
     .about-card {
@@ -199,22 +216,22 @@ import pacoyonque from '../assets/about-us/pacoyonque.webp';
 
     .about-card-img {
       aspect-ratio: unset;
-      height: 53%;
+      height: 55%;
     }
 
     .about-card-body {
       flex: 1;
-      padding: 3rem 2rem 8rem;
-      gap: 1.1rem;
+      padding: 3.5rem 1.75rem 1.5rem;
+      gap: 1rem;
       justify-content: center;
     }
 
     .about-card-title {
-      font-size: 1.75rem;
+      font-size: 1.5rem;
     }
 
     .about-card-desc {
-      font-size: 1.05rem;
+      font-size: 0.95rem;
       line-height: 1.6;
       max-width: 90%;
     }
@@ -224,17 +241,13 @@ import pacoyonque from '../assets/about-us/pacoyonque.webp';
       padding: 0.5rem 1.8rem;
     }
 
-    /* Controles */
-    .about-slider-controls {
+    .about-controls {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 1.5rem;
-      position: absolute;
-      bottom: 2rem;
-      left: 0;
-      right: 0;
-      z-index: 10;
+      margin-top: auto;
+      padding-bottom: 0.5rem;
     }
 
     .about-arrow {
@@ -273,24 +286,21 @@ import pacoyonque from '../assets/about-us/pacoyonque.webp';
 
   if (isMobile()) {
     const cards = Array.from(document.querySelectorAll('#about-us .about-card')) as HTMLElement[];
-    const dots  = Array.from(document.querySelectorAll('#about-us .about-dot'))  as HTMLElement[];
-    const prev  = document.querySelector('#about-us .about-prev') as HTMLButtonElement;
-    const next  = document.querySelector('#about-us .about-next') as HTMLButtonElement;
-
     let current = 0;
 
     cards[0].classList.add('active');
 
     function goTo(index: number) {
       cards[current].classList.remove('active');
-      dots[current].classList.remove('active');
       current = (index + cards.length) % cards.length;
       cards[current].classList.add('active');
-      dots[current].classList.add('active');
     }
 
-    prev.addEventListener('click', () => goTo(current - 1));
-    next.addEventListener('click', () => goTo(current + 1));
-    dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+    cards.forEach((card) => {
+      const prev = card.querySelector('.about-prev') as HTMLButtonElement;
+      const next = card.querySelector('.about-next') as HTMLButtonElement;
+      prev.addEventListener('click', () => goTo(current - 1));
+      next.addEventListener('click', () => goTo(current + 1));
+    });
   }
 </script>
