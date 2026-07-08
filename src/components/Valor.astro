@@ -29,7 +29,7 @@ import personasUrl from '../assets/valor/personas.mp4?url';
           </video>
         </div>
         <div class="stat-text-wrap">
-          <span class="stat-num">+2,000</span>
+          <span class="stat-num" data-target="2000" data-prefix="+">+2,000</span>
           <span class="stat-label">Mil colaboradores</span>
         </div>
       </div>
@@ -43,7 +43,7 @@ import personasUrl from '../assets/valor/personas.mp4?url';
           </video>
         </div>
         <div class="stat-text-wrap">
-          <span class="stat-num">38</span>
+          <span class="stat-num" data-target="38">38</span>
           <span class="stat-label">Tiendas en el Perú<br />y en el exterior</span>
         </div>
       </div>
@@ -57,7 +57,7 @@ import personasUrl from '../assets/valor/personas.mp4?url';
           </video>
         </div>
         <div class="stat-text-wrap">
-          <span class="stat-num">+1,0000</span>
+          <span class="stat-num" data-target="10000" data-prefix="+">+1,0000</span>
           <span class="stat-label">Millón de clientes al mes</span>
         </div>
       </div>
@@ -334,3 +334,41 @@ import personasUrl from '../assets/valor/personas.mp4?url';
     .stat-personas .stat-label { margin-left: 0; }
   }
 </style>
+
+<script>
+  function formatNum(n: number): string {
+    return n.toLocaleString('es-PE');
+  }
+
+  function animateCounter(el: HTMLElement) {
+    const target = parseInt(el.dataset.target ?? '0', 10);
+    const prefix = el.dataset.prefix ?? '';
+    const duration = 1800;
+    const start = performance.now();
+
+    function tick(now: number) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      // ease-out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.round(eased * target);
+      el.textContent = prefix + formatNum(current);
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+
+    requestAnimationFrame(tick);
+  }
+
+  const nums = Array.from(document.querySelectorAll<HTMLElement>('#valor .stat-num[data-target]'));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target as HTMLElement);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+
+  nums.forEach((el) => observer.observe(el));
+</script>

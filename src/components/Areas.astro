@@ -97,6 +97,14 @@ import icono         from '../assets/areas/icono.webp';
       height: auto;
       display: block;
       object-fit: cover;
+      opacity: 0;
+      transform: translateX(-70px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .areas-mobile-img.visible {
+      opacity: 1;
+      transform: translateX(0);
     }
 
     .areas-mobile-info {
@@ -132,3 +140,20 @@ import icono         from '../assets/areas/icono.webp';
     }
   }
 </style>
+
+<script>
+  if (window.innerWidth <= 480) {
+    const img = document.querySelector<HTMLElement>('.areas-mobile-img');
+    if (img) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            img.classList.add('visible');
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.2 });
+      observer.observe(img);
+    }
+  }
+</script>
