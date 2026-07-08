@@ -42,19 +42,28 @@
           video.playsInline = true;
           tryPlay(video);
           observer.observe(video);
+
+          // Si el navegador pausa el video (modo ahorro de batería), reintenta
+          video.addEventListener('pause', () => {
+            setTimeout(() => tryPlay(video), 300);
+          });
+
+          // Reintentar cuando el video puede reproducirse
+          video.addEventListener('canplay', () => tryPlay(video));
         });
 
-        // Reintentar cuando la página vuelve a ser visible (ej. volver de otra app)
+        // Reintentar cuando la página vuelve a ser visible
         document.addEventListener('visibilitychange', () => {
           if (document.visibilityState === 'visible') {
             videos.forEach(tryPlay);
           }
         });
 
-        // Reintentar al primer toque del usuario (desbloquea políticas restrictivas)
-        document.addEventListener('touchstart', () => {
-          videos.forEach(tryPlay);
-        }, { once: true });
+        // Reintentar en cada interacción del usuario (desbloquea políticas restrictivas)
+        const unlock = () => videos.forEach(tryPlay);
+        document.addEventListener('touchstart', unlock, { passive: true });
+        document.addEventListener('pointerdown', unlock, { passive: true });
+        document.addEventListener('scroll', unlock, { passive: true, once: true });
       }
 
       if (document.readyState === 'loading') {
