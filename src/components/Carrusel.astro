@@ -31,14 +31,16 @@ const images = [img1, img2, img3, img4, img5];
 
   <!-- Bloque Oficina -->
   <div class="oficina-block">
+    <div class="oficina-content">
+      <h3 class="oficina-titulo">Oficina</h3>
+      <p class="oficina-desc">
+        Nuestra oficina con acabados de madera que crea un ambiente agradable para trabajar
+        y colaborar. Aquí se integran áreas claves como Operaciones, Finanzas, Recursos Humanos,
+        Marketing y otras áreas que trabajan de manera coordinada para impulsar el crecimiento
+      </p>
+      <a href="https://www.google.com/maps/place/Lucha+Partners+S.A.C./@-12.1169432,-77.0252875,19.29z/data=!4m6!3m5!1s0x9105c818dc117007:0x139c21820817ae8!8m2!3d-12.1167798!4d-77.0250256!16s%2Fg%2F11hb9yky8g?entry=tts&g_ep=EgoyMDI2MDUyNy4wIPu8ASoASAFQAw%3D%3D&skid=12c4dd06-4a9e-48ea-9a18-dbe5977a83a8" target="_blank" rel="noopener" class="oficina-btn">Ver mapa</a>
+    </div>
     <img src={oficina.src} alt="Oficina Lucha Partners" class="oficina-img" />
-    <h3 class="oficina-titulo">Oficina</h3>
-    <p class="oficina-desc">
-      Nuestra oficina con acabados de madera que crea un ambiente agradable para trabajar
-      y colaborar. Aquí se integran áreas claves como Operaciones, Finanzas, Recursos Humanos,
-      Marketing y otras áreas que trabajan de manera coordinada para impulsar el crecimiento
-    </p>
-    <a href="https://www.google.com/maps/place/Lucha+Partners+S.A.C./@-12.1169432,-77.0252875,19.29z/data=!4m6!3m5!1s0x9105c818dc117007:0x139c21820817ae8!8m2!3d-12.1167798!4d-77.0250256!16s%2Fg%2F11hb9yky8g?entry=tts&g_ep=EgoyMDI2MDUyNy4wIPu8ASoASAFQAw%3D%3D&skid=12c4dd06-4a9e-48ea-9a18-dbe5977a83a8" target="_blank" rel="noopener" class="oficina-btn">Ver mapa</a>
   </div>
 
 </section>
@@ -93,27 +95,37 @@ const images = [img1, img2, img3, img4, img5];
   /* ── Bloque Oficina ── */
   .oficina-block {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    text-align: center;
-    padding: 5rem 2rem 4rem;
-    gap: 1.25rem;
+    justify-content: center;
+    padding: 10rem 6rem 7rem;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .oficina-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    flex: 1;
   }
 
   .oficina-img {
-    width: 220px;
+    width: 280px;
     height: auto;
     object-fit: contain;
+    flex-shrink: 0;
   }
 
   .oficina-titulo {
     font-family: 'Fraunces', Georgia, serif;
     font-weight: 600;
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: #331A09;
     margin: 0;
-    width: 480px;
-    line-height: 61px;
+    line-height: 1.2;
   }
 
   .oficina-desc {
@@ -122,17 +134,14 @@ const images = [img1, img2, img3, img4, img5];
     color: #331A09;
     line-height: 1.65;
     margin: 0;
-    width: 719px;
-    min-height: 168px;
   }
 
   .oficina-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 180px;
+    width: 150px;
     height: 44px;
-    margin-top: -4rem;
     background: #F47153;
     color: #ffffff;
     font-family: 'Gilroy', sans-serif;
@@ -140,6 +149,7 @@ const images = [img1, img2, img3, img4, img5];
     text-decoration: none;
     border-radius: 50px;
     transition: opacity 0.2s ease;
+    margin-top: 0.5rem;
   }
 
   .oficina-btn:hover {
@@ -176,8 +186,14 @@ const images = [img1, img2, img3, img4, img5];
     }
 
     .oficina-block {
+      flex-direction: column;
       padding: 4rem 1.5rem 3rem;
-      gap: 1rem;
+      gap: 1.5rem;
+    }
+
+    .oficina-content {
+      align-items: center;
+      text-align: center;
     }
 
     .oficina-img {
@@ -185,14 +201,11 @@ const images = [img1, img2, img3, img4, img5];
     }
 
     .oficina-titulo {
-      width: 100%;
       font-size: 1.6rem;
       line-height: 1.3;
     }
 
     .oficina-desc {
-      width: 100%;
-      min-height: auto;
       font-size: 0.9rem;
     }
 
