@@ -11,6 +11,8 @@ import pacoyonque from '../assets/about-us/pacoyonque.webp';
       <div class="about-card-img">
         <img src={lalucha.src} alt="La Lucha Sanguchería" />
       </div>
+      <button class="about-arrow about-prev" aria-label="Anterior">&#8249;</button>
+      <button class="about-arrow about-next" aria-label="Siguiente">&#8250;</button>
       <div class="about-card-body" style="background:#90785F;">
         <h3 class="about-card-title">La Lucha Sanguchería</h3>
         <p class="about-card-desc">
@@ -20,13 +22,11 @@ import pacoyonque from '../assets/about-us/pacoyonque.webp';
         </p>
         <button class="about-card-btn">Ver más</button>
         <div class="about-controls">
-          <button class="about-arrow about-prev" aria-label="Anterior">&#8249;</button>
           <div class="about-dots">
             <span class="about-dot active"></span>
             <span class="about-dot"></span>
             <span class="about-dot"></span>
           </div>
-          <button class="about-arrow about-next" aria-label="Siguiente">&#8250;</button>
         </div>
       </div>
     </div>
@@ -35,6 +35,8 @@ import pacoyonque from '../assets/about-us/pacoyonque.webp';
       <div class="about-card-img">
         <img src={sietesopas.src} alt="Siete Sopas" />
       </div>
+      <button class="about-arrow about-prev" aria-label="Anterior">&#8249;</button>
+      <button class="about-arrow about-next" aria-label="Siguiente">&#8250;</button>
       <div class="about-card-body" style="background:#67794E;">
         <h3 class="about-card-title">Siete Sopas</h3>
         <p class="about-card-desc">
@@ -44,13 +46,11 @@ import pacoyonque from '../assets/about-us/pacoyonque.webp';
         </p>
         <button class="about-card-btn">Ver más</button>
         <div class="about-controls">
-          <button class="about-arrow about-prev" aria-label="Anterior">&#8249;</button>
           <div class="about-dots">
             <span class="about-dot"></span>
             <span class="about-dot active"></span>
             <span class="about-dot"></span>
           </div>
-          <button class="about-arrow about-next" aria-label="Siguiente">&#8250;</button>
         </div>
       </div>
     </div>
@@ -59,6 +59,8 @@ import pacoyonque from '../assets/about-us/pacoyonque.webp';
       <div class="about-card-img">
         <img src={pacoyonque.src} alt="Paco Yonque" />
       </div>
+      <button class="about-arrow about-prev" aria-label="Anterior">&#8249;</button>
+      <button class="about-arrow about-next" aria-label="Siguiente">&#8250;</button>
       <div class="about-card-body" style="background:#693D3C;">
         <h3 class="about-card-title">Paco Yonque</h3>
         <p class="about-card-desc">
@@ -67,13 +69,11 @@ import pacoyonque from '../assets/about-us/pacoyonque.webp';
         </p>
         <button class="about-card-btn">Ver más</button>
         <div class="about-controls">
-          <button class="about-arrow about-prev" aria-label="Anterior">&#8249;</button>
           <div class="about-dots">
             <span class="about-dot"></span>
             <span class="about-dot"></span>
             <span class="about-dot active"></span>
           </div>
-          <button class="about-arrow about-next" aria-label="Siguiente">&#8250;</button>
         </div>
       </div>
     </div>
@@ -178,7 +178,8 @@ import pacoyonque from '../assets/about-us/pacoyonque.webp';
     border-color: #ffffff;
   }
 
-  /* Controles ocultos en desktop */
+  /* Flechas y controles ocultos en desktop */
+  .about-arrow,
   .about-controls {
     display: none;
   }
@@ -221,7 +222,7 @@ import pacoyonque from '../assets/about-us/pacoyonque.webp';
 
     .about-card-body {
       flex: 1;
-      padding: 3.5rem 1.75rem 1.5rem;
+      padding: 2rem 1.75rem 1.5rem;
       gap: 1rem;
       justify-content: center;
     }
@@ -239,27 +240,41 @@ import pacoyonque from '../assets/about-us/pacoyonque.webp';
     .about-card-btn {
       font-size: 0.85rem;
       padding: 0.5rem 1.8rem;
+      margin-top: 0;
     }
 
     .about-controls {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 1.5rem;
-      margin-top: auto;
+      margin-top: 0;
       padding-bottom: 0.5rem;
     }
 
+    /* Flechas posicionadas en el límite imagen/body */
     .about-arrow {
-      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 52%;
+      transform: translateY(-50%);
+      z-index: 10;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.55);
       border: none;
-      color: #ffffff;
-      font-size: 2rem;
+      color: #ebebeb;
+      font-size: 1.4rem;
       line-height: 1;
+      padding: 0 0 0.1rem 0;
       cursor: pointer;
-      padding: 0.25rem 0.5rem;
-      opacity: 0.85;
+      backdrop-filter: blur(2px);
     }
+
+    .about-prev { left: 1.5rem; }
+    .about-next { right: 1.5rem; }
 
     .about-dots {
       display: flex;
@@ -297,10 +312,10 @@ import pacoyonque from '../assets/about-us/pacoyonque.webp';
     }
 
     cards.forEach((card) => {
-      const prev = card.querySelector('.about-prev') as HTMLButtonElement;
-      const next = card.querySelector('.about-next') as HTMLButtonElement;
-      prev.addEventListener('click', () => goTo(current - 1));
-      next.addEventListener('click', () => goTo(current + 1));
+      const prev = card.querySelector<HTMLButtonElement>('.about-prev');
+      const next = card.querySelector<HTMLButtonElement>('.about-next');
+      prev?.addEventListener('click', () => goTo(current - 1));
+      next?.addEventListener('click', () => goTo(current + 1));
     });
   }
 </script>
